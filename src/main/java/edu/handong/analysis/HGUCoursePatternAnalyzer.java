@@ -23,7 +23,7 @@ public class HGUCoursePatternAnalyzer {
 	int numOfCourses;
 	Student[] students;
 	Course[] courses;
-	//hi
+
 	
 	/**
 	 * This method runs our analysis logic to get the list of student and course names from lines.
