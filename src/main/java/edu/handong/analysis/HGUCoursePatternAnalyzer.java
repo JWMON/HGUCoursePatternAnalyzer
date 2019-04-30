@@ -57,10 +57,22 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private Student[] initiateStudentArrayFromLines(String[] lines) {
 		
-		students = new Student[lines.length];
+		students = new Student[numOfStudents];
+
+		String name;
+		int count = 0;
 		
-		for(int i=1; i<lines.length; i++) {
-			students[i] = new Student(lines[i].split(",")[1].trim());
+		for(int i=0; i<lines.length; i++) {
+			
+			name = lines[i].split(",")[1].trim();
+			
+			if(studentExist(students, new Student(name))) {
+				continue;
+			}
+			
+			students[count] = new Student(name);
+			count++;
+			
 		}
 		
 		return students;
@@ -73,12 +85,13 @@ public class HGUCoursePatternAnalyzer {
 	 * @return boolean
 	 */
 	private boolean studentExist(Student[] students, Student student) {
-		
-		for(int i = 0; i < students.length; i++) {
-			if(students[i]== null || student== null) continue;
-			if(students[i].getName() == student.getName()) return true;
-		}
 
+		for(int i = 0; i < students.length; i++) {
+			if(students[i] != null && students[i].getName().equals(student.getName())) {
+				return true;
+			}
+		}
+	
 		return false;
 	}
 	
@@ -89,10 +102,23 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private Course[] initiateCourseArrayFromLines(String[] lines) {
 		
-		courses = new Course[lines.length];
+		courses = new Course[numOfCourses];
+
+		String name;
+		int count = 0;
 		
-		for(int i=0; i<lines.length; i++) 
-			courses[i] = new Course(lines[i].split(",")[2].trim());
+		for(int i=0; i<lines.length; i++) {
+			
+			name = lines[i].split(",")[2].trim();
+			
+			if(courseExist(courses, new Course(name))) {
+				continue;
+			}
+			
+			courses[count] = new Course(name);
+			count++;
+			
+		}
 		
 		return courses;
 	}
@@ -105,9 +131,10 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private boolean courseExist(Course[] courses, Course course) {
 		
-		for(int i=0; i<courses.length; i++) {
-			if(courses[i].getCourseName() == course.getCourseName())
+		for(int i = 0; i < courses.length; i++) {
+			if(courses[i] != null && courses[i].getCourseName().equals(course.getCourseName())) {
 				return true;
+			}
 		}
 
 		return false;
