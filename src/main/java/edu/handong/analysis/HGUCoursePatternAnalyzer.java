@@ -61,10 +61,7 @@ public class HGUCoursePatternAnalyzer {
 		
 		for(int i=1; i<lines.length; i++) {
 			students[i] = new Student(lines[i].split(",")[1].trim());
-			
 		}
-		
-		
 		
 		return students;
 	}
@@ -77,7 +74,10 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private boolean studentExist(Student[] students, Student student) {
 		
-		
+		for(int i = 0; i < students.length; i++) {
+			if(students[i]== null || student== null) continue;
+			if(students[i].getName() == student.getName()) return true;
+		}
 
 		return false;
 	}
