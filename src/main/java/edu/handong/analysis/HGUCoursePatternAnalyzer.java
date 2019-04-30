@@ -91,7 +91,6 @@ public class HGUCoursePatternAnalyzer {
 				return true;
 			}
 		}
-	
 		return false;
 	}
 	
@@ -136,7 +135,6 @@ public class HGUCoursePatternAnalyzer {
 				return true;
 			}
 		}
-
 		return false;
 	}
 
