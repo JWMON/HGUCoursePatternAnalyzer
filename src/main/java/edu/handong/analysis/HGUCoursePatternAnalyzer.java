@@ -70,8 +70,7 @@ public class HGUCoursePatternAnalyzer {
 				continue;
 			}
 			
-			students[count] = new Student(name);
-			count++;
+			students[count++] = new Student(name);
 			
 		}
 		
@@ -114,8 +113,7 @@ public class HGUCoursePatternAnalyzer {
 				continue;
 			}
 			
-			courses[count] = new Course(name);
-			count++;
+			courses[count++] = new Course(name);
 			
 		}
 		
